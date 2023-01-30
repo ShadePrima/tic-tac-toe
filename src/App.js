@@ -1,23 +1,27 @@
 import React from 'react';
 
-export default function Square() {
+import Board from './components/Board';
+
+const Game = () => {
+  const [xIsNext, setXIsNext] = React.useState(true);
+  const [history, setHistory] = React.useState([Array(9).fill(null)]);
+  const currentSquares = history[history.length - 1];
+
+  function handlePlay(nextSquares) {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  }
+
   return (
-    <div>
-      <div className='board-row'>
-        <button className='square'>1</button>
-        <button className='square'>2</button>
-        <button className='square'>3</button>
+    <div className='game'>
+      <div className='game-board'>
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className='board-row'>
-        <button className='square'>4</button>
-        <button className='square'>5</button>
-        <button className='square'>6</button>
-      </div>
-      <div className='board-row'>
-        <button className='square'>7</button>
-        <button className='square'>8</button>
-        <button className='square'>9</button>
+      <div className='game-info'>
+        <ol>todo</ol>
       </div>
     </div>
   );
-}
+};
+
+export default Game;
