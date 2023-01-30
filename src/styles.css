@@ -85,6 +85,18 @@ body {
   flex-direction: row;
 }
 
+@media (max-width: 420px) {
+  .game {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .game-info {
+    margin-left: -20px !important;
+  }
+}
+
 .game-info {
   margin-left: 20px;
 }
