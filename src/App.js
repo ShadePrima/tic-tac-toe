@@ -28,7 +28,9 @@ const Game = () => {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button className='buttonJumpTo' onClick={() => jumpTo(move)}>
+          {description}
+        </button>
       </li>
     );
   });
@@ -39,7 +41,7 @@ const Game = () => {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className='game-info'>
-        <ol>{moves}</ol>
+        <ol className='game-info__item'>{moves}</ol>
       </div>
     </div>
   );
